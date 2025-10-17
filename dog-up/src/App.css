@@ -1,63 +1,143 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-button {
-  margin: 10px;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #e381af;
-  color: rgb(56, 177, 199);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.App-header {
-  background-color: #7f570d;
-  position: fixed;
-  top: 0;
-  bottom: 0;
+html, body, #root {
+  height: 100%;
   width: 100%;
-  display: float;
-  justify-content: center;
-  align-items: center;
-  color: rgb(242, 172, 211);
 }
 
-.App-link {
-  color: #4da4bc;
+.app {
+  justify-content: center; /* горизонтальное центрирование */
+  align-items: center;     /* вертикальное центрирование */
+  width: 100vw;             /* на всю ширину */
   text-align: center;
-  padding: 14px 16px;
-  font-size: 80px;
-  
+  background: linear-gradient(135deg, #f7f3e8, #e6dfc8);
+  padding: 1rem;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;        /* растягиваем на всю высоту родителя */
 
 }
+
+.hero {
+  display: flex;
+  flex-direction: column;    /* располагаем элементы вертикально */
+  justify-content: center;   /* выравниваем по вертикали */
+  align-items: center;       /* выравниваем по горизонтали */
+  background: linear-gradient(135deg, #f1e6c0, #f0d8ab);
+  text-align: center;
+  gap: 1rem;   
+  width: 100%;
+  min-height: 100vh;  /* адаптивно*/
+  padding: 2rem; /* внутренние отступы */
+  box-sizing: border-box;/* промежутки между элементами */
+}
+
+.hero_logo {
+  margin-top: 2rem;
+  width: 120px;
+  height: auto;
+}
+
+.hero .hero_logo:hover {
+  transform: rotate(+20deg) scale(1.05);
+}
+
+.hero_title {
+  font-size: 3rem;
+  color: #245440;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  width: 550px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+}
+
+.char {
+  flex: 1;
+  transition: 0.3s ease-in-out;
+  position: relative;
+}
+
+.hero_title:hover .char:nth-child(1) {
+  margin-top: -30px;
+  transform: rotate(-20deg);
+}
+.hero_title:hover .char:nth-child(2) {
+  margin: -40px 0 0 10px;
+  transform: rotate(5deg);
+}
+.hero_title:hover .char:nth-child(3) {
+  margin: 15px 0 0 10px;
+  transform: rotate(12deg);
+}
+.hero_title:hover .char:nth-child(4) {
+  margin: -25px 0 0;
+  transform: rotate(5deg);
+}
+.hero_title:hover .char:nth-child(5) {
+  margin: -120px 5px 0;
+  transform: rotate(-10deg);
+  color: rgb(235, 171, 51);
+}
+.hero_title:hover .char:nth-child(6) {
+  margin: -40px 0 0 15px;
+  transform: rotate(-20deg);
+}
+
+.hero_tagline {
+  font-size: 1.25rem;
+  font-family: 'Poppins', sans-serif;
+  color: #2d6a4f;
+  max-width: 600px;   /* ограничиваем длину строки */
+  line-height: 2;
+}
+
+.hero_cta {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  background-color: #40916c;
+  color: white;
+  border:none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero_cta:hover {
+  background-color: #2d6a4f;
+  transform: translateY(4px);
+  box-shadow: 
+    inset 0 1px 0 0 #f4f4f4,
+    0 1px 0 0 #efefef,
+    0 1px 0 0 #ececec,
+    0 2px 0 0 #e0e0e0,
+    0 2px 0 0 #dedede,
+    0 3px 0 0 #dcdcdc,
+    0 4px 0 0 #cacaca,
+    0 4px 6px 0 #cecece;
+}
+
 
 .App-footer {
-  background-color: #7f570d;
-  position: fixed;
+  background: linear-gradient(135deg,  #40916c, #52d59a);
+  padding: 0.5rem;
+  /* position: fixed; */
   bottom: 0;
   width: 100%;
-  display: float;
   justify-content: center;
   align-items: center;
   color: rgb(242, 172, 211);
+
 }
 
 .App-contacts {
@@ -67,11 +147,51 @@
   align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .hero_logo {
+  width: 5rem;
+  height: auto;
+}
+
+  .hero_title {
+    font-size: 1.8rem;
+  
+  }
+  
+  .hero_title{
+    max-width: 90%;
+    font-size: clamp(2rem, 8vw, 3rem)
+  }
+/*   
+    .hero_title:hover .char {
+    margin: 0 !important;
+    transform: none !important;
+  } */
+
+  .hero_tagline{
+    font-size: smaller;
+  }
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  .cta {
+    margin-bottom: 1rem;
+    width: 80%;
+    font-size: 1rem;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;
   }
 }

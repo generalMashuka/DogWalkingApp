@@ -1,28 +1,23 @@
-import logo from '/public/logo.svg';
+import React from 'react';
+import logo from './assets/dog-up_colour.png';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-              <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Dog-up
-        </a>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          This is my pet project to help people walk their dogs.
-        </p>
-        <div className='.App-button-container'>
-        <p>click here <button className='App-button'>dog-up</button> to book a walk  </p>
-        </div>
+    <div className="app">
 
+      <header className="hero">
+        <img src={logo} className="hero_logo" alt="DogUp logo" />
+          {/* <h1 className="hero_title">Dog up</h1> */}
+          <div className="hero_title">
+            {['D', 'O', 'G', '-', 'U', 'P'].map((char, i) => (
+            <span key={i} className='char'> {char}</span>
+            ))}
+          </div>
+          <p className="hero_tagline">Quand ton chien a besoin d’un catch-up!</p>
+          <button className="hero_cta">Book a walk</button>
       </header>
-    <div>
+  
     <footer className="App-footer">
     <div className='App-contacts'>
       <p>Contact us at &#9786; jurgensonmk@google.com</p>
@@ -33,7 +28,7 @@ function App() {
       
     </footer>
     </div>
-    </div>
+
     
   );
 }
